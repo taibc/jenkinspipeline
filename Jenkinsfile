@@ -2,9 +2,7 @@ pipeline {
     agent any
     
     tools {
-	maven 'localMaven'
-	jdk 'localJDK'
-	git 'localGit'
+	maven 'localMaven'	
 	}
     
     parameters { 
