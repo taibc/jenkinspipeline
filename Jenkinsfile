@@ -37,7 +37,7 @@ stages{
 
                 stage ("Deploy to Production"){
                     steps {
-                        bat 'echo y | pscp -i D:\\"Du lieu Tai\\"nghien cuu"\\Jenkins\\Udemy\\Resource\\tomcat-demo-virginia.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
+                        bat 'echo y | pscp -i D:\\"Du lieu Tai\\"nghien cuu"\\Jenkins\\Udemy\\Resource\\tomcat-demo-virginia.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps'
                     }
                 }
             }
