@@ -22,7 +22,7 @@ stages{
             post {
                 success {
                     echo 'Now Archiving...'
-                    archiveArtifacts artifacts: '**/target/*.war'
+                    archiveArtifacts artifacts: 'C:\\*.war'
                 }
             }
         }
@@ -31,13 +31,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat 'echo y | pscp -i C:\\tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps'
+                        bat 'echo y | pscp -i C:\\tomcat-demo.pem C:\\*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps'
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        bat 'echo y | pscp -i C:\\tomcat-demo-virginia.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps'
+                        bat 'echo y | pscp -i C:\\tomcat-demo-virginia.pem C:\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps'
                     }
                 }
             }
