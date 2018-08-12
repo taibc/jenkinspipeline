@@ -31,6 +31,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
+			echo '$JENKINS_HOME/jobs//jobs//branches//builds/$BUILD_NUMBER/archive/'
                         bat 'echo y | pscp -i C:\\tomcat-demo.pem \'**/target/*.war\' ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps'
                     }
                 }
