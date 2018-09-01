@@ -6,8 +6,8 @@ pipeline {
 	}
     
     parameters { 
-         string(name: 'tomcat_dev', defaultValue: '52.14.28.67', description: 'Staging Server')
-         string(name: 'tomcat_prod', defaultValue: '52.91.193.134', description: 'Production Server')
+         string(name: 'tomcat_dev', defaultValue: '34.230.72.136', description: 'Staging Server')
+         string(name: 'tomcat_prod', defaultValue: '18.222.204.165', description: 'Production Server')
     } 
 
     triggers {
@@ -33,14 +33,14 @@ stages{
                     steps {
 			echo '$JENKINS_HOME/jobs//jobs//branches//builds/$BUILD_NUMBER/archive/'
 			echo "${params.tomcat_dev}"
-			echo 'echo y | pscp -i C:\\tomcat-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\34\\archive\\webapp\\target\\*.war'
-                        bat 'echo y | pscp -i tC:\\tomcat-demo.pem target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps'
+			echo 'echo y | pscp -i C:\\tomcat_new-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\34\\archive\\webapp\\target\\*.war'
+                        bat 'echo y | pscp -i tC:\\tomcat_new-demo.pem target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps'
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        bat 'echo y | pscp -i C:\\tomcat-demo-virginia.pem target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps'
+                        bat 'echo y | pscp -i C:\\tomcat_new-demo-pro.pem target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps'
                     }
                 }
             }
