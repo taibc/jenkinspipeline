@@ -34,14 +34,21 @@ stages{
 			echo '$JENKINS_HOME/jobs//jobs//branches//builds/$BUILD_NUMBER/archive/'
 			echo "${params.tomcat_dev}"
 			echo 'echo y | pscp -i C:\\tomcat_new-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\44\\archive\\webapp\\target\\*.war'
-                        bat 'echo y | pscp -i tC:\\tomcat_new-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\45\\archive\\webapp\\target\\*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps'
+			    timeout(time: 2, unit: 'MINUTES')
+				{
+
+				     bat 'echo y | pscp -i tC:\\tomcat_new-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\46\\archive\\webapp\\target\\*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps'
+				}                      
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        bat 'echo y | pscp -i C:\\tomcat_new-demo-pro.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\45\\archive\\webapp\\target\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps'
-                    }
+			    timeout(time: 2, unit: 'MINUTES')
+				{
+                        		bat 'echo y | pscp -i C:\\tomcat_new-demo-pro.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\46\\archive\\webapp\\target\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps'
+				}
+			}
                 }
             }
         }
