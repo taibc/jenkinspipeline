@@ -37,7 +37,7 @@ stages{
 			    timeout(time: 2, unit: 'MINUTES')
 				{
 
-				     bat 'echo y | pscp -i C:\\tomcat_new-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\47\\archive\\webapp\\target\\*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps'
+				     bat 'echo y | pscp -i C:\\tomcat_new-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\47\\archive\\webapp\\target\\*.war ec2-user@34.230.72.136:/var/lib/tomcat7/webapps'
 				}                      
                     }
                 }
@@ -46,7 +46,7 @@ stages{
                     steps {
 			    timeout(time: 2, unit: 'MINUTES')
 				{
-                        		bat 'echo y | pscp -i C:\\tomcat_new-demo-pro.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\48\\archive\\webapp\\target\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps'
+                        		bat 'echo y | pscp -i C:\\tomcat_new-demo-pro.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\48\\archive\\webapp\\target\\*.war ec2-user@18.222.204.165:/var/lib/tomcat7/webapps'
 				}
 			}
                 }
