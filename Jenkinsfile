@@ -37,7 +37,7 @@ stages{
 			    timeout(time: 2, unit: 'MINUTES')
 				{
 
-				     bat 'echo y | pscp -i C:\\tomcat_new-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\50\\archive\\webapp\\target\\*.war ec2-user@34.230.72.136:/var/lib/tomcat7/webapps -o StrictHostKeyChecking=no'
+				     bat 'echo y | pscp -i C:\\tomcat_new-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\51\\archive\\webapp\\target\\*.war ec2-user@34.230.72.136:/var/lib/tomcat7/webapps'
 				}                      
                     }
                 }
@@ -46,7 +46,7 @@ stages{
                     steps {
 			    timeout(time: 2, unit: 'MINUTES')
 				{
-                        		bat 'echo y | pscp -i C:\\tomcat_new-demo-pro.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\50\\archive\\webapp\\target\\*.war ec2-user@18.222.204.165:/var/lib/tomcat7/webapps -o StrictHostKeyChecking=no'
+                        		bat 'echo y | pscp -i C:\\tomcat_new-demo-pro.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\51\\archive\\webapp\\target\\*.war ec2-user@18.222.204.165:/var/lib/tomcat7/webapps'
 				}
 			}
                 }
