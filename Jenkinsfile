@@ -6,8 +6,8 @@ pipeline {
 	}
     
     parameters { 
-         string(name: 'tomcat_dev', defaultValue: '34.230.72.136', description: 'Staging Server')
-         string(name: 'tomcat_prod', defaultValue: '18.222.204.165', description: 'Production Server')
+         string(name: 'tomcat_dev', defaultValue: '107.21.82.235', description: 'Staging Server')
+         string(name: 'tomcat_prod', defaultValue: '52.14.246.243', description: 'Production Server')
     } 
 
     triggers {
@@ -33,11 +33,11 @@ stages{
                     steps {
 			echo '$JENKINS_HOME/jobs//jobs//branches//builds/$BUILD_NUMBER/archive/'
 			echo "${params.tomcat_dev}"
-			echo 'echo y | pscp -i C:\\tomcat_new-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\44\\archive\\webapp\\target\\*.war'
+			echo 'echo y | pscp -i C:\\tomcat_aut_2309.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\44\\archive\\webapp\\target\\*.war'
 			    timeout(time: 2, unit: 'MINUTES')
 				{
 
-				     bat 'echo y | pscp -i C:\\tomcat_new-demo.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\51\\archive\\webapp\\target\\*.war ec2-user@34.230.72.136:/var/lib/tomcat7/webapps'
+				     bat 'echo y | pscp -i C:\\tomcat_aut_2309.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\51\\archive\\webapp\\target\\*.war ec2-user@ec2-107-21-82-235.compute-1.amazonaws.com:/var/lib/tomcat7/webapps'
 				}                      
                     }
                 }
@@ -46,7 +46,7 @@ stages{
                     steps {
 			    timeout(time: 2, unit: 'MINUTES')
 				{
-                        		bat 'echo y | pscp -i C:\\tomcat_new-demo-pro.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\51\\archive\\webapp\\target\\*.war ec2-user@18.222.204.165:/var/lib/tomcat7/webapps'
+                        		bat 'echo y | pscp -i C:\\tomcat_pro_2309.pem C:\\Users\\Administrator\\.jenkins\\jobs\\FullyAutomate\\builds\\51\\archive\\webapp\\target\\*.war ec2-user@ec2-52-14-246-243.us-east-2.compute.amazonaws.com:/var/lib/tomcat7/webapps'
 				}
 			}
                 }
